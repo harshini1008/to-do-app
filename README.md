@@ -1,5 +1,11 @@
-# Getting started
+FROM node:18-alpine
 
-This repository is a sample application for users following the getting started guide at https://docs.docker.com/get-started/.
+WORKDIR /app
 
-The application is based on the application from the getting started tutorial at https://github.com/docker/getting-started
+COPY . .
+
+RUN yarn install --production
+
+CMD ["node", "src/index.js"]
+
+EXPOSE 3000
